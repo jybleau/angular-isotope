@@ -40,10 +40,6 @@ angular.module("iso.directives").directive("isotopeContainer", [
       require: "^isotopeContainer"
       link: (scope, element, attrs) ->
         scope.setIsoElement element
-        scope.$on "$destroy", (message) ->
-          $rootScope.$broadcast topics.MSG_REMOVE, element
-          return
-
         if attrs.ngRepeat and true is scope.$last and "addItems" is scope.isoMode
           element.ready ->
             $timeout (->

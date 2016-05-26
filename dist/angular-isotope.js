@@ -285,9 +285,6 @@ angular.module("iso.directives")
       link: function(scope, element, attrs) {
 
         scope.setIsoElement(element);
-        scope.$on('$destroy', function(message) {
-          $rootScope.$broadcast(topics.MSG_REMOVE, element);
-        });
         if (attrs.ngRepeat && true === scope.$last && "addItems" === scope.isoMode) {
           element.ready(function() {
             return $timeout((function() {
